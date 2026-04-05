@@ -1,0 +1,863 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.6.3">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan">
+      <boolProp name="TestPlan.serialize_threadgroups">true</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+    </TestPlan>
+    <hashTree>
+      <com.di.jmeter.kafka.config.KafkaProducerConfig guiclass="TestBeanGUI" testclass="com.di.jmeter.kafka.config.KafkaProducerConfig" testname="Kafka Producer Config">
+        <stringProp name="kafkaProducerClientVariableName">KafkaProducerClient</stringProp>
+        <stringProp name="kafkaBrokers">localhost:29092</stringProp>
+        <stringProp name="batchSize">16384</stringProp>
+        <stringProp name="clientId">JMeter-Producer-1</stringProp>
+        <stringProp name="serializerKey">org.apache.kafka.common.serialization.StringSerializer</stringProp>
+        <stringProp name="serializerValue">org.apache.kafka.common.serialization.StringSerializer</stringProp>
+        <stringProp name="securityType">securityType.plaintext</stringProp>
+        <stringProp name="kafkaSslTruststore"></stringProp>
+        <stringProp name="kafkaSslTruststorePassword">Chang3M3</stringProp>
+        <stringProp name="kafkaSslKeystore"></stringProp>
+        <stringProp name="kafkaSslKeystorePassword">Chang3M3</stringProp>
+        <stringProp name="kafkaSslPrivateKeyPass">Chang3M3</stringProp>
+        <collectionProp name="extraConfigs"/>
+      </com.di.jmeter.kafka.config.KafkaProducerConfig>
+      <hashTree/>
+      <kg.apc.jmeter.timers.VariableThroughputTimer guiclass="kg.apc.jmeter.timers.VariableThroughputTimerGui" testclass="kg.apc.jmeter.timers.VariableThroughputTimer" testname="jp@gc - Throughput Shaping Timer" enabled="true">
+        <collectionProp name="load_profile">
+          <collectionProp name="1291256769">
+            <stringProp name="1507423">1000</stringProp>
+            <stringProp name="1507423">1000</stringProp>
+            <stringProp name="1629">30</stringProp>
+          </collectionProp>
+          <collectionProp name="1400499148">
+            <stringProp name="1512228">1500</stringProp>
+            <stringProp name="1512228">1500</stringProp>
+            <stringProp name="50547">300</stringProp>
+          </collectionProp>
+          <collectionProp name="1670703512">
+            <stringProp name="1537216">2002</stringProp>
+            <stringProp name="1537214">2000</stringProp>
+            <stringProp name="50547">300</stringProp>
+          </collectionProp>
+          <collectionProp name="240066188">
+            <stringProp name="1567005">3000</stringProp>
+            <stringProp name="1567005">3000</stringProp>
+            <stringProp name="50547">300</stringProp>
+          </collectionProp>
+        </collectionProp>
+      </kg.apc.jmeter.timers.VariableThroughputTimer>
+      <hashTree/>
+      <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.TransactionsPerSecondGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Transactions per Second" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+        <longProp name="interval_grouping">100</longProp>
+        <boolProp name="graph_aggregated">false</boolProp>
+        <stringProp name="include_sample_labels"></stringProp>
+        <stringProp name="exclude_sample_labels"></stringProp>
+        <stringProp name="start_offset"></stringProp>
+        <stringProp name="end_offset"></stringProp>
+        <boolProp name="include_checkbox_state">false</boolProp>
+        <boolProp name="exclude_checkbox_state">false</boolProp>
+      </kg.apc.jmeter.vizualizers.CorrectedResultCollector>
+      <hashTree/>
+      <com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroup guiclass="com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroupGui" testclass="com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroup" testname="bzm - Concurrency Thread Group" enabled="false">
+        <elementProp name="ThreadGroup.main_controller" elementType="com.blazemeter.jmeter.control.VirtualUserController"/>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <stringProp name="TargetLevel">4</stringProp>
+        <stringProp name="RampUp">300</stringProp>
+        <stringProp name="Steps">4</stringProp>
+        <stringProp name="Hold">1200</stringProp>
+        <stringProp name="LogFilename"></stringProp>
+        <stringProp name="Iterations"></stringProp>
+        <boolProp name="same_user_on_next_iteration">false</boolProp>
+        <stringProp name="Unit">S</stringProp>
+      </com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroup>
+      <hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler" enabled="false">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">import org.apache.commons.lang3.RandomStringUtils
+import java.util.UUID
+import java.util.Random
+import java.util.concurrent.ThreadLocalRandom
+
+
+// Функция для генерации случайного UUID
+def generateMsgId() {
+    return UUID.randomUUID().toString()
+}
+
+// Функция для генерации случайного ИНН ФЛ
+def generateInnFl() {
+	def long min = 00000000000L
+def long max = 230000000000L
+ def rand = new Random()
+  def long inn = ThreadLocalRandom.current().nextLong(min, max + 1)
+    return String.valueOf(inn)
+
+// nextLong(origin, bound) - генерирует от origin (вкл) до bound (искл)
+// Чтобы включить max, мы передаем max + 1
+
+
+//println &quot;Случайное число типа Long: ${randomLong}&quot;
+
+    
+}
+
+// Данные для генерации ФИО
+def femaleNames = [&apos;Александра&apos;, &apos;Елена&apos;, &apos;Ольга&apos;, &apos;Ирина&apos;, &apos;Наталья&apos;]
+def maleNames = [&apos;Александр&apos;, &apos;Василий&apos;, &apos;Петр&apos;, &apos;Иван&apos;, &apos;Дмитрий&apos;]
+def lastNames = [&apos;Смирнов&apos;, &apos;Иванов&apos;, &apos;Кузнецов&apos;, &apos;Соколов&apos;, &apos;Попов&apos;]
+def middleNamesMale = [&apos;Алексеевич&apos;, &apos;Петрович&apos;, &apos;Иванович&apos;, &apos;Дмитриевич&apos;, &apos;Андреевич&apos;]
+def middleNamesFemale = [&apos;Алексеевна&apos;, &apos;Петровна&apos;, &apos;Ивановна&apos;, &apos;Дмитриевна&apos;, &apos;Андреевна&apos;]
+
+// Функция для выбора случайного элемента из списка
+def getRandomElement(list) {
+   def rand = new Random()
+    return list[rand.nextInt(list.size())]
+}
+
+// Выбор пола (0 - женский, 1 - мужской)
+def gender = new Random().nextInt(2)
+
+// Генерация ФИО
+def name = gender == 0 ? getRandomElement(femaleNames) : getRandomElement(maleNames)
+def lastName = getRandomElement(lastNames) + (gender == 0 ? &apos;а&apos; : &apos;&apos;)
+def middleName = gender == 0 ? getRandomElement(middleNamesFemale) : getRandomElement(middleNamesMale)
+def fullName = lastName + &quot; &quot; + name + &quot; &quot; + middleName
+
+// Создание JSON-сообщения
+def msgId = generateMsgId()
+def inn = generateInnFl()
+
+def message = [
+    msg_id: msgId,
+    full_name: fullName,
+    inn: inn
+]
+
+// Преобразование в JSON-строку
+def jsonMessage = new groovy.json.JsonBuilder(message).toString()
+
+// Сохранение в переменные JMeter
+vars.put(&quot;jsonMessage&quot;, jsonMessage)</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <com.di.jmeter.kafka.config.KafkaProducerConfig guiclass="TestBeanGUI" testclass="com.di.jmeter.kafka.config.KafkaProducerConfig" testname="Kafka Producer Config" enabled="false">
+          <stringProp name="kafkaProducerClientVariableName">KafkaProducerClient</stringProp>
+          <stringProp name="kafkaBrokers">localhost:29092</stringProp>
+          <stringProp name="batchSize">16384</stringProp>
+          <stringProp name="clientId">JMeter-Producer-1</stringProp>
+          <stringProp name="serializerKey">org.apache.kafka.common.serialization.StringSerializer</stringProp>
+          <stringProp name="serializerValue">org.apache.kafka.common.serialization.StringSerializer</stringProp>
+          <stringProp name="securityType">securityType.plaintext</stringProp>
+          <stringProp name="kafkaSslTruststore"></stringProp>
+          <stringProp name="kafkaSslTruststorePassword">Chang3M3</stringProp>
+          <stringProp name="kafkaSslKeystore"></stringProp>
+          <stringProp name="kafkaSslKeystorePassword">Chang3M3</stringProp>
+          <stringProp name="kafkaSslPrivateKeyPass">Chang3M3</stringProp>
+          <collectionProp name="extraConfigs"/>
+        </com.di.jmeter.kafka.config.KafkaProducerConfig>
+        <hashTree/>
+        <com.di.jmeter.kafka.sampler.KafkaProducerSampler guiclass="TestBeanGUI" testclass="com.di.jmeter.kafka.sampler.KafkaProducerSampler" testname="Kafka Producer Sampler" enabled="false">
+          <stringProp name="kafkaProducerClientVariableName">KafkaProducerClient</stringProp>
+          <stringProp name="kafkaTopic">vtb</stringProp>
+          <stringProp name="partitionString"></stringProp>
+          <stringProp name="kafkaMessageKey">Key</stringProp>
+          <stringProp name="kafkaMessage">{&quot;jsonMessage&quot;, ${jsonMessage}}</stringProp>
+          <collectionProp name="messageHeaders"/>
+        </com.di.jmeter.kafka.sampler.KafkaProducerSampler>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">import org.apache.commons.lang3.RandomStringUtils
+import java.util.UUID
+import java.util.Random
+import java.util.concurrent.ThreadLocalRandom
+
+
+// Функция для генерации случайного UUID
+def generateMsgId() {
+    return UUID.randomUUID().toString()
+}
+
+// Функция для генерации случайного ИНН ФЛ
+def generateInnFl() {
+	def long min = 00000000000L
+def long max = 230000000000L
+ def rand = new Random()
+  def long inn = ThreadLocalRandom.current().nextLong(min, max + 1)
+    return String.valueOf(inn)
+
+// nextLong(origin, bound) - генерирует от origin (вкл) до bound (искл)
+// Чтобы включить max, мы передаем max + 1
+
+
+//println &quot;Случайное число типа Long: ${randomLong}&quot;
+
+    
+}
+
+// Данные для генерации ФИО
+def femaleNames = [&apos;Александра&apos;, &apos;Елена&apos;, &apos;Ольга&apos;, &apos;Ирина&apos;, &apos;Наталья&apos;]
+def maleNames = [&apos;Александр&apos;, &apos;Василий&apos;, &apos;Петр&apos;, &apos;Иван&apos;, &apos;Дмитрий&apos;]
+def lastNames = [&apos;Смирнов&apos;, &apos;Иванов&apos;, &apos;Кузнецов&apos;, &apos;Соколов&apos;, &apos;Попов&apos;]
+def middleNamesMale = [&apos;Алексеевич&apos;, &apos;Петрович&apos;, &apos;Иванович&apos;, &apos;Дмитриевич&apos;, &apos;Андреевич&apos;]
+def middleNamesFemale = [&apos;Алексеевна&apos;, &apos;Петровна&apos;, &apos;Ивановна&apos;, &apos;Дмитриевна&apos;, &apos;Андреевна&apos;]
+
+// Функция для выбора случайного элемента из списка
+def getRandomElement(list) {
+   def rand = new Random()
+    return list[rand.nextInt(list.size())]
+}
+
+// Выбор пола (0 - женский, 1 - мужской)
+def gender = new Random().nextInt(2)
+
+// Генерация ФИО
+def name = gender == 0 ? getRandomElement(femaleNames) : getRandomElement(maleNames)
+def lastName = getRandomElement(lastNames) + (gender == 0 ? &apos;а&apos; : &apos;&apos;)
+def middleName = gender == 0 ? getRandomElement(middleNamesFemale) : getRandomElement(middleNamesMale)
+def fullName = lastName + &quot; &quot; + name + &quot; &quot; + middleName
+
+// Создание JSON-сообщения
+def msgId = generateMsgId()
+def inn = generateInnFl()
+
+def message = [
+    msg_id: msgId,
+    full_name: fullName,
+    inn: inn
+]
+
+// Преобразование в JSON-строку
+def jsonMessage = new groovy.json.JsonBuilder(message).toString()
+
+// Сохранение в переменные JMeter
+vars.put(&quot;jsonMessage&quot;, jsonMessage)</stringProp>
+            <stringProp name="scriptLanguage">groovy</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="false">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <com.github.johrstrom.listener.PrometheusListener guiclass="com.github.johrstrom.listener.gui.PrometheusListenerGui" testclass="com.github.johrstrom.listener.PrometheusListener" testname="Prometheus Listener" enabled="false">
+        <collectionProp name="prometheus.collector_definitions"/>
+      </com.github.johrstrom.listener.PrometheusListener>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="false">
+        <intProp name="ThreadGroup.num_threads">1</intProp>
+        <intProp name="ThreadGroup.ramp_time">1</intProp>
+        <longProp name="ThreadGroup.duration">300</longProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
+          <stringProp name="LoopController.loops">1</stringProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+        </elementProp>
+      </ThreadGroup>
+      <hashTree>
+        <com.di.jmeter.kafka.config.KafkaProducerConfig guiclass="TestBeanGUI" testclass="com.di.jmeter.kafka.config.KafkaProducerConfig" testname="Kafka Producer Config" enabled="true">
+          <stringProp name="kafkaProducerClientVariableName">KafkaProducerClient</stringProp>
+          <stringProp name="kafkaBrokers">localhost:29092</stringProp>
+          <stringProp name="batchSize">16384</stringProp>
+          <stringProp name="clientId">JMeter-Producer-1</stringProp>
+          <stringProp name="serializerKey">org.apache.kafka.common.serialization.StringSerializer</stringProp>
+          <stringProp name="serializerValue">org.apache.kafka.common.serialization.StringSerializer</stringProp>
+          <stringProp name="securityType">securityType.plaintext</stringProp>
+          <stringProp name="kafkaSslTruststore"></stringProp>
+          <stringProp name="kafkaSslTruststorePassword">Chang3M3</stringProp>
+          <stringProp name="kafkaSslKeystore"></stringProp>
+          <stringProp name="kafkaSslKeystorePassword">Chang3M3</stringProp>
+          <stringProp name="kafkaSslPrivateKeyPass">Chang3M3</stringProp>
+          <collectionProp name="extraConfigs"/>
+        </com.di.jmeter.kafka.config.KafkaProducerConfig>
+        <hashTree/>
+        <com.di.jmeter.kafka.sampler.KafkaProducerSampler guiclass="TestBeanGUI" testclass="com.di.jmeter.kafka.sampler.KafkaProducerSampler" testname="Kafka Producer Sampler" enabled="true">
+          <stringProp name="kafkaProducerClientVariableName">KafkaProducerClient</stringProp>
+          <stringProp name="kafkaTopic">vtb</stringProp>
+          <stringProp name="partitionString"></stringProp>
+          <stringProp name="kafkaMessageKey">Key</stringProp>
+          <stringProp name="kafkaMessage">${jsonMessage}</stringProp>
+          <collectionProp name="messageHeaders"/>
+        </com.di.jmeter.kafka.sampler.KafkaProducerSampler>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">import org.apache.commons.lang3.RandomStringUtils
+import java.util.UUID
+import java.util.Random
+import java.util.concurrent.ThreadLocalRandom
+
+
+// Функция для генерации случайного UUID
+def generateMsgId() {
+    return UUID.randomUUID().toString()
+}
+
+// Функция для генерации случайного ИНН ФЛ
+def generateInnFl() {
+	def long min = 00000000000L
+def long max = 230000000000L
+ def rand = new Random()
+  def long inn = ThreadLocalRandom.current().nextLong(min, max + 1)
+    return String.valueOf(inn)
+
+// nextLong(origin, bound) - генерирует от origin (вкл) до bound (искл)
+// Чтобы включить max, мы передаем max + 1
+
+
+//println &quot;Случайное число типа Long: ${randomLong}&quot;
+
+    
+}
+
+// Данные для генерации ФИО
+def femaleNames = [&apos;Александра&apos;, &apos;Елена&apos;, &apos;Ольга&apos;, &apos;Ирина&apos;, &apos;Наталья&apos;]
+def maleNames = [&apos;Александр&apos;, &apos;Василий&apos;, &apos;Петр&apos;, &apos;Иван&apos;, &apos;Дмитрий&apos;]
+def lastNames = [&apos;Смирнов&apos;, &apos;Иванов&apos;, &apos;Кузнецов&apos;, &apos;Соколов&apos;, &apos;Попов&apos;]
+def middleNamesMale = [&apos;Алексеевич&apos;, &apos;Петрович&apos;, &apos;Иванович&apos;, &apos;Дмитриевич&apos;, &apos;Андреевич&apos;]
+def middleNamesFemale = [&apos;Алексеевна&apos;, &apos;Петровна&apos;, &apos;Ивановна&apos;, &apos;Дмитриевна&apos;, &apos;Андреевна&apos;]
+
+// Функция для выбора случайного элемента из списка
+def getRandomElement(list) {
+   def rand = new Random()
+    return list[rand.nextInt(list.size())]
+}
+
+// Выбор пола (0 - женский, 1 - мужской)
+def gender = new Random().nextInt(2)
+
+// Генерация ФИО
+def name = gender == 0 ? getRandomElement(femaleNames) : getRandomElement(maleNames)
+def lastName = getRandomElement(lastNames) + (gender == 0 ? &apos;а&apos; : &apos;&apos;)
+def middleName = gender == 0 ? getRandomElement(middleNamesFemale) : getRandomElement(middleNamesMale)
+def fullName = lastName + &quot; &quot; + name + &quot; &quot; + middleName
+
+// Создание JSON-сообщения
+def msgId = generateMsgId()
+def inn = generateInnFl()
+
+def message = [
+    msg_id: msgId,
+    full_name: fullName,
+    inn: inn
+]
+
+// Преобразование в JSON-строку
+def jsonMessage = new groovy.json.JsonBuilder(message).toString()
+
+// Сохранение в переменные JMeter
+vars.put(&quot;jsonMessage&quot;, jsonMessage)</stringProp>
+            <stringProp name="scriptLanguage">groovy</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <kg.apc.jmeter.timers.VariableThroughputTimer guiclass="kg.apc.jmeter.timers.VariableThroughputTimerGui" testclass="kg.apc.jmeter.timers.VariableThroughputTimer" testname="jp@gc - Throughput Shaping Timer" enabled="false">
+        <collectionProp name="load_profile">
+          <collectionProp name="1284947244">
+            <stringProp name="47545">0,5</stringProp>
+            <stringProp name="47545">0,5</stringProp>
+            <stringProp name="50547">300</stringProp>
+          </collectionProp>
+          <collectionProp name="1950377708">
+            <stringProp name="49">1</stringProp>
+            <stringProp name="49">1</stringProp>
+            <stringProp name="50547">300</stringProp>
+          </collectionProp>
+          <collectionProp name="1951186188">
+            <stringProp name="50">2</stringProp>
+            <stringProp name="50">2</stringProp>
+            <stringProp name="50547">300</stringProp>
+          </collectionProp>
+          <collectionProp name="1951223884">
+            <stringProp name="51">3</stringProp>
+            <stringProp name="51">3</stringProp>
+            <stringProp name="50547">300</stringProp>
+          </collectionProp>
+        </collectionProp>
+      </kg.apc.jmeter.timers.VariableThroughputTimer>
+      <hashTree/>
+      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="jp@gc - Ultimate Thread Group">
+        <collectionProp name="ultimatethreadgroupdata">
+          <collectionProp name="-478688661">
+            <stringProp name="51">3</stringProp>
+            <stringProp name="0">0</stringProp>
+            <stringProp name="48">0</stringProp>
+            <stringProp name="1509345">1200</stringProp>
+            <stringProp name="48">0</stringProp>
+          </collectionProp>
+        </collectionProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
+          <intProp name="LoopController.loops">-1</intProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+      </kg.apc.jmeter.threads.UltimateThreadGroup>
+      <hashTree>
+        <com.di.jmeter.kafka.sampler.KafkaProducerSampler guiclass="TestBeanGUI" testclass="com.di.jmeter.kafka.sampler.KafkaProducerSampler" testname="Kafka Producer Sampler" enabled="true">
+          <stringProp name="kafkaProducerClientVariableName">KafkaProducerClient</stringProp>
+          <stringProp name="kafkaTopic">vtb</stringProp>
+          <stringProp name="partitionString"></stringProp>
+          <stringProp name="kafkaMessageKey">Key</stringProp>
+          <stringProp name="kafkaMessage">${jsonMessage}</stringProp>
+          <collectionProp name="messageHeaders"/>
+        </com.di.jmeter.kafka.sampler.KafkaProducerSampler>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">import org.apache.commons.lang3.RandomStringUtils
+import java.util.UUID
+import java.util.Random
+import java.util.concurrent.ThreadLocalRandom
+
+def generateMsgId() {
+    return UUID.randomUUID().toString()
+}
+def generateInnFl() {
+	def long min = 00000000000L
+def long max = 230000000000L
+ def rand = new Random()
+  def long inn = ThreadLocalRandom.current().nextLong(min, max + 1)
+    return String.valueOf(inn)
+    
+}
+
+def femaleNames = [&apos;Александра&apos;, &apos;Елена&apos;, &apos;Ольга&apos;, &apos;Ирина&apos;, &apos;Наталья&apos;]
+def maleNames = [&apos;Александр&apos;, &apos;Василий&apos;, &apos;Петр&apos;, &apos;Иван&apos;, &apos;Дмитрий&apos;]
+def lastNames = [&apos;Смирнов&apos;, &apos;Иванов&apos;, &apos;Кузнецов&apos;, &apos;Соколов&apos;, &apos;Попов&apos;]
+def middleNamesMale = [&apos;Алексеевич&apos;, &apos;Петрович&apos;, &apos;Иванович&apos;, &apos;Дмитриевич&apos;, &apos;Андреевич&apos;]
+def middleNamesFemale = [&apos;Алексеевна&apos;, &apos;Петровна&apos;, &apos;Ивановна&apos;, &apos;Дмитриевна&apos;, &apos;Андреевна&apos;]
+
+def getRandomElement(list) {
+   def rand = new Random()
+    return list[rand.nextInt(list.size())]
+}
+
+def gender = new Random().nextInt(2)
+
+def name = gender == 0 ? getRandomElement(femaleNames) : getRandomElement(maleNames)
+def lastName = getRandomElement(lastNames) + (gender == 0 ? &apos;а&apos; : &apos;&apos;)
+def middleName = gender == 0 ? getRandomElement(middleNamesFemale) : getRandomElement(middleNamesMale)
+def fullName = lastName + &quot; &quot; + name + &quot; &quot; + middleName
+
+def msgId = generateMsgId()
+def inn = generateInnFl()
+
+def message = [
+    msg_id: msgId,
+    full_name: fullName,
+    inn: inn
+]
+
+def jsonMessage = new groovy.json.JsonBuilder(message).toString()
+
+vars.put(&quot;jsonMessage&quot;, jsonMessage)</stringProp>
+            <stringProp name="scriptLanguage">groovy</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <BackendListener guiclass="BackendListenerGui" testclass="BackendListener" testname="Backend Listener" enabled="false">
+          <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="graphiteMetricsSender" elementType="Argument">
+                <stringProp name="Argument.name">graphiteMetricsSender</stringProp>
+                <stringProp name="Argument.value">org.apache.jmeter.visualizers.backend.graphite.TextGraphiteMetricsSender</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="graphiteHost" elementType="Argument">
+                <stringProp name="Argument.name">graphiteHost</stringProp>
+                <stringProp name="Argument.value"></stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="graphitePort" elementType="Argument">
+                <stringProp name="Argument.name">graphitePort</stringProp>
+                <stringProp name="Argument.value">2003</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="rootMetricsPrefix" elementType="Argument">
+                <stringProp name="Argument.name">rootMetricsPrefix</stringProp>
+                <stringProp name="Argument.value">jmeter.</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="summaryOnly" elementType="Argument">
+                <stringProp name="Argument.name">summaryOnly</stringProp>
+                <stringProp name="Argument.value">true</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="samplersList" elementType="Argument">
+                <stringProp name="Argument.name">samplersList</stringProp>
+                <stringProp name="Argument.value"></stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="percentiles" elementType="Argument">
+                <stringProp name="Argument.name">percentiles</stringProp>
+                <stringProp name="Argument.value">90;95;99</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="classname">org.apache.jmeter.visualizers.backend.graphite.GraphiteBackendListenerClient</stringProp>
+        </BackendListener>
+        <hashTree/>
+      </hashTree>
+      <com.github.johrstrom.listener.PrometheusListener guiclass="com.github.johrstrom.listener.gui.PrometheusListenerGui" testclass="com.github.johrstrom.listener.PrometheusListener" testname="Prometheus Listener" enabled="true">
+        <collectionProp name="prometheus.collector_definitions">
+          <elementProp name="" elementType="com.github.johrstrom.listener.ListenerCollectorConfig">
+            <stringProp name="collector.help">response time summary</stringProp>
+            <stringProp name="collector.metric_name">jmeter_rt_summary</stringProp>
+            <stringProp name="collector.type">SUMMARY</stringProp>
+            <collectionProp name="collector.labels">
+              <stringProp name="50511102">category</stringProp>
+              <stringProp name="102727412">label</stringProp>
+              <stringProp name="3059181">code</stringProp>
+            </collectionProp>
+            <stringProp name="collector.quantiles_or_buckets">0.95,0.1</stringProp>
+          </elementProp>
+          <elementProp name="" elementType="com.github.johrstrom.listener.ListenerCollectorConfig">
+            <stringProp name="collector.help">all code and count</stringProp>
+            <stringProp name="collector.metric_name">jmeter_count_total</stringProp>
+            <stringProp name="collector.type">COUNTER</stringProp>
+            <collectionProp name="collector.labels">
+              <stringProp name="102727412">label</stringProp>
+              <stringProp name="3059181">code</stringProp>
+            </collectionProp>
+            <stringProp name="collector.quantiles_or_buckets"></stringProp>
+            <stringProp name="listener.collector.measuring">CountTotal</stringProp>
+          </elementProp>
+          <elementProp name="" elementType="com.github.johrstrom.listener.ListenerCollectorConfig">
+            <stringProp name="collector.help">success total</stringProp>
+            <stringProp name="collector.metric_name">jmeter_success_total</stringProp>
+            <stringProp name="collector.type">COUNTER</stringProp>
+            <collectionProp name="collector.labels">
+              <stringProp name="102727412">label</stringProp>
+              <stringProp name="3059181">code</stringProp>
+            </collectionProp>
+            <stringProp name="collector.quantiles_or_buckets"></stringProp>
+            <stringProp name="listener.collector.measuring">SuccessTotal</stringProp>
+          </elementProp>
+          <elementProp name="" elementType="com.github.johrstrom.listener.ListenerCollectorConfig">
+            <stringProp name="collector.help">success ratio</stringProp>
+            <stringProp name="collector.metric_name">jmeter_success_ratio</stringProp>
+            <stringProp name="collector.type">SUCCESS_RATIO</stringProp>
+            <collectionProp name="collector.labels">
+              <stringProp name="102727412">label</stringProp>
+              <stringProp name="3059181">code</stringProp>
+            </collectionProp>
+            <stringProp name="collector.quantiles_or_buckets"></stringProp>
+            <stringProp name="listener.collector.measuring">SuccessRatio</stringProp>
+          </elementProp>
+          <elementProp name="" elementType="com.github.johrstrom.listener.ListenerCollectorConfig">
+            <stringProp name="collector.help">idle time</stringProp>
+            <stringProp name="collector.metric_name">jmeter_idle_time</stringProp>
+            <stringProp name="collector.type">SUMMARY</stringProp>
+            <collectionProp name="collector.labels"/>
+            <stringProp name="collector.quantiles_or_buckets">0.75,0.5|0.95,0.1|0.99,0.01</stringProp>
+            <stringProp name="listener.collector.measuring">IdleTime</stringProp>
+          </elementProp>
+          <elementProp name="" elementType="com.github.johrstrom.listener.ListenerCollectorConfig">
+            <stringProp name="collector.help">failure total</stringProp>
+            <stringProp name="collector.metric_name">jmeter_failure_total</stringProp>
+            <stringProp name="collector.type">COUNTER</stringProp>
+            <collectionProp name="collector.labels">
+              <stringProp name="102727412">label</stringProp>
+            </collectionProp>
+            <stringProp name="collector.quantiles_or_buckets"></stringProp>
+            <stringProp name="listener.collector.measuring">FailureTotal</stringProp>
+          </elementProp>
+          <elementProp name="" elementType="com.github.johrstrom.listener.ListenerCollectorConfig">
+            <stringProp name="collector.help">response time counter</stringProp>
+            <stringProp name="collector.metric_name">jmeter_rt_counter</stringProp>
+            <stringProp name="collector.type">SUMMARY</stringProp>
+            <collectionProp name="collector.labels"/>
+            <stringProp name="collector.quantiles_or_buckets">0.75,0.5|0.95,0.1|0.99,0.01</stringProp>
+            <stringProp name="listener.collector.measuring">ResponseTime</stringProp>
+          </elementProp>
+          <elementProp name="" elementType="com.github.johrstrom.listener.ListenerCollectorConfig">
+            <stringProp name="collector.help">latency summary</stringProp>
+            <stringProp name="collector.metric_name">jmeter_latency_summary</stringProp>
+            <stringProp name="collector.type">SUMMARY</stringProp>
+            <collectionProp name="collector.labels"/>
+            <stringProp name="collector.quantiles_or_buckets">0.75,0.5|0.95,0.1|0.99,0.01</stringProp>
+            <stringProp name="listener.collector.measuring">Latency</stringProp>
+          </elementProp>
+          <elementProp name="" elementType="com.github.johrstrom.listener.ListenerCollectorConfig">
+            <stringProp name="collector.help">connect time</stringProp>
+            <stringProp name="collector.metric_name">jmeter_connect_time</stringProp>
+            <stringProp name="collector.type">SUMMARY</stringProp>
+            <collectionProp name="collector.labels"/>
+            <stringProp name="collector.quantiles_or_buckets">0.75,0.5|0.95,0.1|0.99,0.01</stringProp>
+            <stringProp name="listener.collector.measuring">ConnectTime</stringProp>
+          </elementProp>
+        </collectionProp>
+      </com.github.johrstrom.listener.PrometheusListener>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
