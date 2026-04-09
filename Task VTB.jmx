@@ -23,6 +23,7 @@
         <stringProp name="kafkaSslKeystorePassword">Chang3M3</stringProp>
         <stringProp name="kafkaSslPrivateKeyPass">Chang3M3</stringProp>
         <collectionProp name="extraConfigs"/>
+        <stringProp name="TestPlan.comments">a</stringProp>
       </com.di.jmeter.kafka.config.KafkaProducerConfig>
       <hashTree/>
       <kg.apc.jmeter.timers.VariableThroughputTimer guiclass="kg.apc.jmeter.timers.VariableThroughputTimerGui" testclass="kg.apc.jmeter.timers.VariableThroughputTimer" testname="jp@gc - Throughput Shaping Timer">
